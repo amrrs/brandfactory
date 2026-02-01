@@ -20,7 +20,7 @@ export async function generateVideoWithOpenAI(
     model: OPENAI_MODELS.sora,
     prompt: options.prompt,
     size: "1280x720",
-    seconds: options.duration ?? 8,
+    seconds: (options.duration ?? 8) as any,
     input_reference: inputReference,
   });
 
@@ -64,7 +64,7 @@ export async function generateVideoWithFal(
       input: {
         prompt: options.prompt,
         image_url: options.sourceImageUrl,
-        duration: options.duration ?? 8,
+        duration: (options.duration ?? 8) as any,
       },
       logs: true,
       onQueueUpdate: (update) => {
@@ -74,7 +74,7 @@ export async function generateVideoWithFal(
       },
     });
 
-    const videoUrl = result.video?.url || result.data?.video?.url || result.url;
+    const videoUrl = (result as any).video?.url || (result as any).data?.video?.url || (result as any).url;
     if (!videoUrl) {
       throw new Error(`No video returned. Raw result: ${safeStringify(result)}`);
     }

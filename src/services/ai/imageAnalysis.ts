@@ -88,6 +88,7 @@ export async function analyzeWithOpenAI(
     image_url: imageBase64.startsWith("data:")
       ? imageBase64
       : `data:image/jpeg;base64,${imageBase64}`,
+    detail: "high" as const,
   }));
 
   const response = await openai.responses.create({

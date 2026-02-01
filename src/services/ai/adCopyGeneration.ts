@@ -44,9 +44,7 @@ linkedinCaption, tiktokCaption.`;
   });
 
   // Extract text output from response
-  const textOutput = response.output?.find(
-    (item: { type: string }) => item.type === "message"
-  );
+  const textOutput = response.output?.find((item) => item.type === "message") as any;
   const jsonText = textOutput?.content?.[0]?.text ?? "{}";
   return JSON.parse(jsonText) as AdCopy;
 }

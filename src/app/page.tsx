@@ -136,6 +136,12 @@ export default function Home() {
       return;
     }
 
+    const apiKey = openaiKey;
+    if (!apiKey) {
+      setShowKeyDialog(true);
+      return;
+    }
+
     setIsAnalyzingEngagement(true);
     addLog("Starting engagement analysis...");
 
@@ -153,7 +159,7 @@ export default function Home() {
       const imageUrl = await base64Promise;
       console.log("Analyzing image URL:", imageUrl.substring(0, 50) + "...");
       
-      const analysis = await analyzeEngagement(openaiKey, imageUrl);
+      const analysis = await analyzeEngagement(apiKey, imageUrl);
       setEngagementAnalysis(analysis);
       addLog(`Engagement analysis complete. Overall score: ${analysis.overallScore}/100`);
     } catch (error) {
@@ -179,6 +185,12 @@ export default function Home() {
       return;
     }
 
+    const apiKey = openaiKey;
+    if (!apiKey) {
+      setShowKeyDialog(true);
+      return;
+    }
+
     setIsAnalyzingStrategy(true);
     addLog("Starting brand strategy analysis...");
 
@@ -196,7 +208,7 @@ export default function Home() {
       const imageUrl = await base64Promise;
       console.log("Analyzing image URL:", imageUrl.substring(0, 50) + "...");
       
-      const strategy = await analyzeBrandStrategy(openaiKey, imageUrl);
+      const strategy = await analyzeBrandStrategy(apiKey, imageUrl);
       setBrandStrategy(strategy);
       addLog(`Brand strategy analysis complete. Archetype: ${strategy.brandArchetype}`);
     } catch (error) {

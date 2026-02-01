@@ -48,7 +48,7 @@ export async function generateImageWithOpenAI(
         input_fidelity: "high",
       });
 
-      const b64 = response.data[0].b64_json;
+      const b64 = response.data?.[0]?.b64_json;
       if (!b64) throw new Error("No image returned");
       return base64ToBlobUrl(b64);
     }
@@ -61,7 +61,7 @@ export async function generateImageWithOpenAI(
       n: 1,
     });
 
-    const b64 = response.data[0].b64_json;
+    const b64 = response.data?.[0]?.b64_json;
     if (!b64) throw new Error("No image returned");
     return base64ToBlobUrl(b64);
   } catch (error) {
@@ -97,7 +97,7 @@ export async function generateImageWithFal(
     logs: true,
   });
 
-  const images = result.images || result.data?.images;
+  const images = (result as any).images || (result as any).data?.images;
   if (!images?.[0]?.url) throw new Error("No image returned");
 
   return images[0].url;

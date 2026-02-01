@@ -108,6 +108,7 @@ Consider:
           {
             type: "input_image",
             image_url: imageUrl,
+            detail: "high" as const,
           },
         ],
       },
