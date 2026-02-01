@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <!-- Background -->
+  <rect width="180" height="180" rx="40" fill="#09090b"/>
+  
+  <!-- Lightbulb glow -->
+  <circle cx="90" cy="72" r="45" fill="#22c55e" fill-opacity="0.15"/>
+  
+  <!-- Lightbulb glass -->
+  <path d="M90 28C69.565 28 53 44.565 53 65c0 13.177 6.581 24.813 16.631 31.83 2.51 1.754 5.369 3.96 5.369 6.97V110c0 3.038 2.462 5.5 5.5 5.5h19c3.038 0 5.5-2.462 5.5-5.5v-6.2c0-3.01 2.859-5.216 5.369-6.97C120.419 89.813 127 78.177 127 65c0-20.435-16.565-37-37-37z" fill="#22c55e"/>
+  
+  <!-- Lightbulb base rings -->
+  <rect x="68" y="122" width="44" height="10" rx="3" fill="#22c55e"/>
+  <rect x="72" y="138" width="36" height="10" rx="5" fill="#22c55e"/>
+  
+  <!-- Inner filament detail -->
+  <path d="M90 48v12M80 56l5 5M100 56l-5 5" stroke="#09090b" stroke-width="6" stroke-linecap="round"/>
+</svg>
